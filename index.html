@@ -46,10 +46,22 @@
                     <input type="text" id="plundered_coal" name="plundered_coal" size="5" disabled>
                     <label for="plundered_coal">coal</label><br><br>
 
-                    <label for="free_load">Free load: </label>
-                    <input type="text" id="free_load" name="free_load" size="4" disabled>
+                    <label for="load">Load: </label>
+                    <meter id="load_meter" value="0" min="0" max="100"></meter>
+                    <input type="text" id="load" name="load" size="4" disabled>
+
                 </div>
             </div>
+
+            <footer>
+                <p>
+                If you have any questions regarding this calculator, fell free to fill in an issue on GitHub:
+                <a href="https://github.com/Sabotaz/wartide/issues">Wartide calculator issues</a>
+                </p>
+                <p>
+                You can also contact me on the official discord: <code>.sablier</code>
+                </p>
+            </footer>
         </div>
 
     </body>

@@ -17,7 +17,8 @@ const fScoutedCoal = document.querySelector("#f_scouted_coal");
 const plunderedWood = document.querySelector("#plundered_wood");
 const plunderedIron = document.querySelector("#plundered_iron");
 const plunderedCoal = document.querySelector("#plundered_coal");
-const freeLoad = document.querySelector("#free_load");
+const load = document.querySelector("#load");
+const loadMeter = document.querySelector("#load_meter");
 
 troopLevel.addEventListener("input", calculate);
 fleetSize.addEventListener("input", calculate);
@@ -87,8 +88,9 @@ function calculate(event) {
     plunderedIron.value = nFormatter(minPlunderedIron / 2, 1)
     plunderedCoal.value = nFormatter(minPlunderedCoal / 5, 1)
 
-    totalFreeLoad = totalLoad - (minPlunderedWood + minPlunderedIron + minPlunderedCoal)
-    freeLoad.value = Math.round(100*totalFreeLoad/totalLoad) + "%"
+    currentLoad = (minPlunderedWood + minPlunderedIron + minPlunderedCoal)
+    load.value = Math.round(100*currentLoad/totalLoad) + "%"
+    loadMeter.value = Math.round(100*currentLoad/totalLoad)
 }
 
 calculate({})
