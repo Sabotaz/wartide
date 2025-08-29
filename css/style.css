@@ -1,0 +1,19 @@
+
+.content {
+    margin: 0 auto;
+    width: 1000px;
+
+}
+
+.container {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+}
+
+.container > div {
+    padding-right: 75px;
+}
+
+label, input {
+    margin-top: 1em;
+}
