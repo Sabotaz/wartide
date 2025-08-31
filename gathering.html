@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gathering calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/gathering.js" defer></script>
+</head>
+<body>
+    <div class="content">
+        <h1>Gathering calculator</h1>
+        <div class="container">
+            <div>
+                <h2>Fleet</h2>
+                <label for="troop_level">Troop level</label>
+                <input type="number" id="troop_level" name="troop_level" min="1" max="10" value="7"><br>
+                <label for="fleet_size">Fleet size</label>
+                <input type="number" id="fleet_size" name="fleet_size" min="1" max="10000" value="1400"><br>
+                <h3>Load Bonus</h3>
+                <label for="troop_load_bonus">Troop load (%)</label>
+                <input type="number" id="troop_load_bonus" name="troop_load_bonus" min="0" max="100" step="0.5" value="0"><br>
+                <label for="fleet_load_bonus">Fleet load (%)</label>
+                <input type="number" id="fleet_load_bonus" name="fleet_load_bonus" min="0" max="100" step="0.5" value="0"><br>
+                <label for="guild_load_bonus">Guild load (%)</label>
+                <input type="number" id="guild_load_bonus" name="guild_load_bonus" min="0" max="100" step="0.5" value="0"><br><br>
+                <h3>Gathering Speed Bonus</h3>
+                <label for="wood_speed_bonus">Wood (%)</label>
+                <input type="number" id="wood_speed_bonus" name="wood_speed_bonus" min="0" max="100" step="0.5" value="0"><br>
+                <label for="iron_speed_bonus">Iron (%)</label>
+                <input type="number" id="iron_speed_bonus" name="iron_speed_bonus" min="0" max="100" step="0.5" value="0"><br>
+                <label for="coal_speed_bonus">Coal (%)</label>
+                <input type="number" id="coal_speed_bonus" name="coal_speed_bonus" min="0" max="100" step="0.5" value="0"><br>
+                <label for="fleet_speed_bonus">Fleet (%)</label>
+                <input type="number" id="fleet_speed_bonus" name="fleet_speed_bonus" min="0" max="100" step="0.5" value="0"><br><br>
+                <label for="guild_speed_bonus">Guild (%)</label>
+                <input type="number" id="guild_speed_bonus" name="guild_speed_bonus" min="0" max="100" step="0.5" value="0"><br>
+                <label for="cities_speed_bonus">City (%)</label>
+                <input type="number" id="cities_speed_bonus" name="cities_speed_bonus" min="0" max="100" step="0.5" value="0"><br>
+            </div>
+            <div>
+                <h2>Island</h2>
+                <label for="island_level">Level</label>
+                <input type="number" id="island_level" name="island_level" min="3" max="10" value="10">
+                <br>
+                <input type="checkbox" id="full_island" name="island_type" checked>
+                <label for="full_island">Full island</label><br>
+                <label for="island_resources">Island Resources</label>
+                <input type="number" id="island_resources" name="island_resources" min="1" max="10000000" value="120000" disabled><br>
+                <input type="radio" id="wood_island" name="island_type" checked>
+                <label for="wood_island">Deserted Wood Island</label><br>
+                <input type="radio" id="iron_island" name="island_type">
+                <label for="iron_island">Deserted Iron Island</label><br>
+                <input type="radio" id="coal_island" name="island_type">
+                <label for="coal_island">Deserted Coal Mine Island</label>
+            </div>
+            <div>
+                <h2>Gathering</h2>
+                <label for="gathered_amount">Amount</label>
+                <input type="text" id="gathered_amount" name="gathered_amount" size="15" disabled>
+                <br>
+                <label for="gathered_time">Time</label>
+                <input type="text" id="gathered_time" name="gathered_time" size="8" disabled>
+                <br>
+                <label for="res_per_sec">Resources per second</label>
+                <input type="text" id="res_per_sec" name="res_per_sec" size="8" disabled>
+                <br>
+                <label for="load">Load: </label>
+                <meter id="load_meter" value="0" min="0" max="100"></meter>
+                <input type="text" id="load" name="load" size="4" disabled>
+
+            </div>
+        </div>
+
+        <footer>
+            <p>
+            If you have any questions regarding this calculator, fell free to fill in an issue on GitHub:
+            <a href="https://github.com/Sabotaz/wartide/issues">Wartide calculator issues</a>
+            </p>
+            <p>
+            You can also contact me on the official discord: <code>.sablier</code>
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>

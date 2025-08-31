@@ -1,68 +1,27 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="css/style.css">
-        <script type="text/javascript" src="js/calc.js" defer></script>
-    </head>
-    <body>
-        <div class="content">
-            <h1>Plundering calculator</h1>
-            <div class="container">
-                <div>
-                    <h2>Fleet</h2>
-                    <label for="troop_level">Troop level</label>
-                    <input type="number" id="troop_level" name="troop_level" min="1" max="10" value="7"><br>
-                    <label for="fleet_size">Fleet size</label>
-                    <input type="number" id="fleet_size" name="fleet_size" min="1" max="10000" value="1400"><br><br>
-                    <label for="troop_load_bonus">Troop load bonus (%)</label>
-                    <input type="number" id="troop_load_bonus" name="troop_load_bonus" min="0" max="100" step="0.5" value="0"><br>
-                    <label for="fleet_load_bonus">Fleet load bonus (%)</label>
-                    <input type="number" id="fleet_load_bonus" name="fleet_load_bonus" min="0" max="100" step="0.5" value="0"><br>
-                    <label for="guild_load_bonus">Guild load bonus (%)</label>
-                    <input type="number" id="guild_load_bonus" name="guild_load_bonus" min="0" max="100" step="0.5" value="0">
-                </div>
-                <div>
-                    <h2>Scout</h2>
-                    <label for="scouted_wood">Wood</label>
-                    <input type="text" id="f_scouted_wood" name="f_scouted_wood" size="5" disabled>
-                    <input type="number" id="scouted_wood" name="scouted_wood" min="0" max="10000000000" value="10000000">
-                    <br>
-                    <label for="scouted_iron">Iron</label>
-                    <input type="text" id="f_scouted_iron" name="f_scouted_iron" size="5" disabled>
-                    <input type="number" id="scouted_iron" name="scouted_iron" min="0" max="10000000000" value="10000000">
-                    <br>
-                    <label for="scouted_coal">Coal</label>
-                    <input type="text" id="f_scouted_coal" name="f_scouted_coal" size="5" disabled>
-                    <input type="number" id="scouted_coal" name="scouted_coal" min="0" max="10000000000" value="10000000">
-                </div>
-                <div>
-                    <h2>Plunder</h2>
-                    <input type="text" id="plundered_wood" name="plundered_wood" size="5" disabled>
-                    <label for="plundered_wood">wood</label><br>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wartide calculators</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="content">
+        <h1>Wartide calculators</h1>
+        <ul>
+            <li><a href="gathering.html">Gathering calculator</a></li>
+            <li><a href="plundering.html">Plundering calculator</a></li>
+        </ul>
 
-                    <input type="text" id="plundered_iron" name="plundered_iron" size="5" disabled>
-                    <label for="plundered_iron">iron</label><br>
-
-                    <input type="text" id="plundered_coal" name="plundered_coal" size="5" disabled>
-                    <label for="plundered_coal">coal</label><br><br>
-
-                    <label for="load">Load: </label>
-                    <meter id="load_meter" value="0" min="0" max="100"></meter>
-                    <input type="text" id="load" name="load" size="4" disabled>
-
-                </div>
-            </div>
-
-            <footer>
-                <p>
-                If you have any questions regarding this calculator, fell free to fill in an issue on GitHub:
-                <a href="https://github.com/Sabotaz/wartide/issues">Wartide calculator issues</a>
-                </p>
-                <p>
-                You can also contact me on the official discord: <code>.sablier</code>
-                </p>
-            </footer>
-        </div>
-
-    </body>
+        <footer>
+            <p>
+            If you have any questions regarding this calculator, fell free to fill in an issue on GitHub:
+            <a href="https://github.com/Sabotaz/wartide/issues">Wartide calculator issues</a>
+            </p>
+            <p>
+            You can also contact me on the official discord: <code>.sablier</code>
+            </p>
+        </footer>
+    </div>
+</body>
 </html>
