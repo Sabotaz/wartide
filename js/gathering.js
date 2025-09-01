@@ -197,7 +197,11 @@ function calculate(event) {
     totalTime = gatheredWeight / finalResPerSec
 
     finalGatheredAmount = gatheredWeight / resourceWeights[resourceType]
-    gatheredAmount.value = nFormatter(finalGatheredAmount, 1) + " (" + Math.round(finalGatheredAmount) + ")"
+    if (finalGatheredAmount >= 1000) {
+        gatheredAmount.value = nFormatter(finalGatheredAmount, 1) + " (" + Math.round(finalGatheredAmount) + ")"
+    } else {
+        gatheredAmount.value = Math.round(finalGatheredAmount)
+    }
     gatheredTime.value = timeFormatter(totalTime)
 
     resPerSecField.value = (finalGatheredAmount / totalTime).toFixed(2)

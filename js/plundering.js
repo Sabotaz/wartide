@@ -90,9 +90,21 @@ function calculate(event) {
     minPlunderedIron = Math.min(maxPlunderedIron, scoutedIronWeight)
     minPlunderedCoal = Math.min(maxPlunderedCoal, scoutedCoalWeight)
 
-    plunderedWood.value = nFormatter(minPlunderedWood / 2, 1) + " (" + Math.round(minPlunderedWood/2) + ")"
-    plunderedIron.value = nFormatter(minPlunderedIron / 2, 1) + " (" + Math.round(minPlunderedIron/2) + ")"
-    plunderedCoal.value = nFormatter(minPlunderedCoal / 5, 1) + " (" + Math.round(minPlunderedCoal/5) + ")"
+    if (minPlunderedWood >= 2000) {
+        plunderedWood.value = nFormatter(minPlunderedWood / 2, 1) + " (" + Math.round(minPlunderedWood/2) + ")"
+    } else {
+        plunderedWood.value = Math.round(minPlunderedWood/2)
+    }
+    if (minPlunderedIron >= 2000) {
+        plunderedIron.value = nFormatter(minPlunderedIron / 2, 1) + " (" + Math.round(minPlunderedIron/2) + ")"
+    } else {
+        plunderedIron.value = Math.round(minPlunderedIron/2)
+    }
+    if (minPlunderedCoal >= 5000) {
+        plunderedCoal.value = nFormatter(minPlunderedCoal / 5, 1) + " (" + Math.round(minPlunderedCoal/5) + ")"
+    } else {
+        plunderedCoal.value = Math.round(minPlunderedCoal/5)
+    }
 
     currentLoad = (minPlunderedWood + minPlunderedIron + minPlunderedCoal)
     load.value = Math.round(100*currentLoad/totalLoad) + "%"
