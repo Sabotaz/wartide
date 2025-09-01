@@ -44,6 +44,12 @@ armyLoads = {
 
 loadBonusMultiplicator = 0
 
+function withDecimals(num, digits) {
+  // toFixed round the number, that we don't want
+  let re = new RegExp('^-?\\d+(?:\\.\\d{0,' + digits + '})?')
+  return num.toString().match(re)[0]
+}
+
 function nFormatter(num, digits) {
   const lookup = [
     { value: 1, symbol: "" },
@@ -56,7 +62,7 @@ function nFormatter(num, digits) {
   ];
   const regexp = /\.0+$|(?<=\.[0-9]*[1-9])0+$/;
   const item = lookup.findLast(item => num >= item.value);
-  return item ? (num / item.value).toFixed(digits).replace(regexp, "").concat(item.symbol) : "0";
+  return item ? withDecimals(num / item.value, digits).replace(regexp, "").concat(item.symbol) : "0";
 }
 
 function calculate(event) {
@@ -84,9 +90,9 @@ function calculate(event) {
     minPlunderedIron = Math.min(maxPlunderedIron, scoutedIronWeight)
     minPlunderedCoal = Math.min(maxPlunderedCoal, scoutedCoalWeight)
 
-    plunderedWood.value = nFormatter(minPlunderedWood / 2, 1)
-    plunderedIron.value = nFormatter(minPlunderedIron / 2, 1)
-    plunderedCoal.value = nFormatter(minPlunderedCoal / 5, 1)
+    plunderedWood.value = nFormatter(minPlunderedWood / 2, 1) + " (" + Math.round(minPlunderedWood/2) + ")"
+    plunderedIron.value = nFormatter(minPlunderedIron / 2, 1) + " (" + Math.round(minPlunderedIron/2) + ")"
+    plunderedCoal.value = nFormatter(minPlunderedCoal / 5, 1) + " (" + Math.round(minPlunderedCoal/5) + ")"
 
     currentLoad = (minPlunderedWood + minPlunderedIron + minPlunderedCoal)
     load.value = Math.round(100*currentLoad/totalLoad) + "%"

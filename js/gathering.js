@@ -135,6 +135,12 @@ resourceWeights = {
 loadBonusMultiplicator = 1
 speedBonusMultiplicator = 1
 
+function withDecimals(num, digits) {
+  // toFixed round the number, that we don't want
+  let re = new RegExp('^-?\\d+(?:\\.\\d{0,' + digits + '})?')
+  return num.toString().match(re)[0]
+}
+
 function nFormatter(num, digits) {
   const lookup = [
     { value: 1, symbol: "" },
@@ -147,7 +153,7 @@ function nFormatter(num, digits) {
   ];
   const regexp = /\.0+$|(?<=\.[0-9]*[1-9])0+$/;
   const item = lookup.findLast(item => num >= item.value);
-  return item ? (num / item.value).toFixed(digits).replace(regexp, "").concat(item.symbol) : "0";
+  return item ? withDecimals(num / item.value, digits).replace(regexp, "").concat(item.symbol) : "0";
 }
 
 function timeFormatter(time) {
