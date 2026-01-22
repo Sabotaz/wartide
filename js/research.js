@@ -12,8 +12,10 @@
 // research lab: +0.5% per level
 // CC: +0.5% per level
 // safety: 900 -> +5%
+// policy: 10% final cut
 
 const minister = document.querySelector("#minister");
+const policy = document.querySelector("#policy");
 const vip = document.querySelector("#vip");
 const safety = document.querySelector("#safety");
 
@@ -36,6 +38,7 @@ const totalResearch = document.querySelector("#total_research");
 
 
 minister.addEventListener("input", calculate);
+policy.addEventListener("input", calculate);
 vip.addEventListener("input", calculate);
 safety.addEventListener("input", calculate);
 
@@ -111,6 +114,9 @@ function calculate(event) {
     totalTime = Number(seconds.value) + Number(minutes.value) * 60 + Number(hours.value) * 3600 + Number(days.value) * 86400
 
     cutTime = totalTime / (1 + totalBonus / 100)
+    if (policy.checked) {
+        cutTime = cutTime - Math.min(cutTime * 0.1, 12*3600)
+    }
     cutTime = Math.ceil(cutTime)
 
     total.value = timeFormatter(totalTime)
