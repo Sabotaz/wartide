@@ -21,6 +21,7 @@ const plunderedIron = document.querySelector("#plundered_iron");
 const plunderedCoal = document.querySelector("#plundered_coal");
 const load = document.querySelector("#load");
 const loadMeter = document.querySelector("#load_meter");
+const dailyFlag = document.querySelector("#daily_limit");
 
 troopLevel.addEventListener("input", calculate);
 fleetSize.addEventListener("input", calculate);
@@ -43,6 +44,12 @@ armyLoads = {
     8: 2700,
     9: 3000,
     10: 3300
+}
+
+troopsToSend = {
+    10: 2020,
+    9: 1904,
+    8: 1851
 }
 
 loadBonusMultiplicator = 0
@@ -94,6 +101,7 @@ function calculate(event) {
         if (totalLoad < 40000000) {
             attackLoad = fleetSize.value * armyLoads[troopLevel.value] * loadBonus
         } else {
+            dailyLimit = true
             attackLoad = fleetSize.value * armyLoads[troopLevel.value] * loadBonus * 0.15
         }
         maxLoad += attackLoad
@@ -113,6 +121,7 @@ function calculate(event) {
 
         remaining = attackLoad - currentLoad
 
+        // not sure of this part, though...
         if (remaining >= 5) {
             if (minPlunderedCoal < scoutedCoalWeight) {
                 minPlunderedCoal += 1
@@ -130,7 +139,6 @@ function calculate(event) {
 
         currentLoad = (minPlunderedWood + minPlunderedIron + minPlunderedCoal)
         totalLoad += currentLoad
-
     }
 
     if (totalPlunderedWood >= 2000) {
@@ -149,9 +157,12 @@ function calculate(event) {
         plunderedCoal.value = Math.round(totalPlunderedCoal/5)
     }
 
+    dailyLimit = totalLoad >= 40000000
+
     load.value = Math.round(100*totalLoad/maxLoad) + "%"
     loadMeter.value = Math.round(100*totalLoad/maxLoad)
     totalPlunderedLoad.value = Math.round(totalLoad)
+    dailyFlag.style["visibility"] = dailyLimit ? "visible" : "hidden"
 }
 
 calculate({})
